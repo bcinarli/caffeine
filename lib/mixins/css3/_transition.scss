@@ -1,0 +1,13 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Transition Related Mixins
+    ------------------------------------------- **/
+/**
+ * CSS Transition
+ *
+ * Outputs CSS3 transition code with defined prefixes
+ */
+@mixin transition($content...){
+    @include prefixer(transition, $content, webkit);
+}

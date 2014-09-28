@@ -1,0 +1,33 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Text Related Functions
+    ------------------------------------------- **/
+/**
+  * Rem to PX
+  */
+@function rem-to-px($font-size) {
+    $u: unit($font-size);
+
+    @if($u == 'px'){
+        @return $font-size;
+    }
+
+    $unitless: remove-unit($font-size);
+    @return $unitless * $base-font-size;
+}
+
+/**
+ * REM converter
+ */
+@function rem($font-size) {
+    $u: unit($font-size);
+
+    // rem calculations
+    @if ($u == 'rem'){
+        @return $font-size;
+    } @else {
+        $convert: $font-size/$base-font-size;
+        @return #{$convert}rem;
+    }
+}

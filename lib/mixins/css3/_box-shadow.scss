@@ -1,0 +1,13 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Box Shadow
+    ------------------------------------------- **/
+/**
+ * Simple Box shadow
+ *
+ * @param $content: box-shadow content
+ */
+@mixin box-shadow($content...) {
+    @include prefixer(box-shadow, $content);
+}

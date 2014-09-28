@@ -1,0 +1,36 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Text Related Mixins
+    ------------------------------------------- **/
+/**
+ * Fontface
+ */
+@mixin fontface($name, $file, $weight: normal, $style: normal){
+    @font-face {
+        font-family: "#{$name}";
+        src: url("../fonts/#{$file}.eot?-4c6bhg");
+        src: url("../fonts/#{$file}.eot?#iefix-4c6bhg") format("embedded-opentype"),
+        url("../fonts/#{$file}.woff?-4c6bhg") format("woff"),
+        url("../fonts/#{$file}.ttf?-4c6bhg") format("truetype"),
+        url("../fonts/#{$file}.svg?-4c6bhg#webfont") format("svg");
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+/**
+ * Font-Size callback
+ */
+@mixin font-size($font-size){
+    @if ($font-size == inherit){
+        font-size: inherit;
+    }
+
+    @else {
+        @if($support-for-ie8 == true){
+            font-size: rem-to-px($font-size);
+        }
+        font-size: rem($font-size);
+    }
+}

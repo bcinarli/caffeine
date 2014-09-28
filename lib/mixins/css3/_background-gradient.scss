@@ -1,0 +1,29 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Background Gradient Mixins
+    ------------------------------------------- **/
+/**
+ * Simple Linear gradient
+ * Gets the linear gradient content as a parameter and outputs the prefixed version.
+ * For old browsers do not forget to add fallback color/image before mixin
+ * Uses new linear gradient version. Not supporting Safari 5 or older and IE9 and older versions
+ *
+ * @param $content
+ */
+@mixin linear-gradient($content...){
+    @include value-prefixer(background, linear-gradient, $content, webkit moz ms o);
+}
+
+
+/**
+ * Simple Radial gradient
+ * Gets the radial gradient content as a parameter and outputs the prefixed version.
+ * For old browsers do not forget to add fallback color/image before mixin
+ * Uses new linear gradient version. Not supporting Safari 5 or older and IE9 and older versions
+ *
+ * @param $content
+ */
+@mixin radial-gradient($content...){
+    @include value-prefixer(background, radial-gradient, $content, webkit moz ms o);
+}

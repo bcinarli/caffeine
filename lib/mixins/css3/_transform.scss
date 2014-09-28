@@ -1,0 +1,13 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Transform Related Mixins
+    ------------------------------------------- **/
+/**
+ * CSS Transform
+ *
+ * Outputs CSS3 tranform code with defined prefixes
+ */
+@mixin transform($content...){
+    @include prefixer(transform, $content, webkit ms);
+}

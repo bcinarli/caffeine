@@ -1,0 +1,56 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Arrow
+    ------------------------------------------- **/
+@mixin arrow ($color, $size, $position: top){
+    // defaults
+    $el: "&:after";
+
+    $border-side: border-bottom-color;
+    $margin-side: margin-left;
+
+    $arrow-size: nth($size, 1);
+    $arrow-background-color: nth($color, 1);
+
+    @if $position == right {
+        $border-side: border-left-color;
+        $margin-side: margin-top;
+    }
+    @else if $position == bottom {
+        $border-side: border-top-color;
+        $margin-side: margin-left;
+    }
+    @else if $position == left {
+        $border-side: border-right-color;
+        $margin-side: margin-top;
+    }
+
+    &:after,
+    &:before {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        @include dims(0);
+        content: "";
+        border: solid transparent;
+        pointer-events: none;
+    }
+
+    &:after {
+        #{$margin-side}: -1 * $arrow-size;
+        #{$border-side}: $arrow-background-color;
+        border-width: $arrow-size;
+    }
+
+    @if length($size) == 2 {
+        $arrow-border-color: nth($color, 2);
+        $arrow-border-size: nth($size, 2);
+
+        &:before {
+            #{$margin-side}: -1 * ($arrow-size + $arrow-border-size);
+            #{$border-side}: $arrow-border-color;
+            border-width: ($arrow-size + $arrow-border-size);
+        }
+    }
+}

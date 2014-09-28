@@ -1,0 +1,32 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Generic Mixins
+    ------------------------------------------- **/
+/**
+ * Adds prefixed version of a property according to listed vendors
+ */
+@mixin prefixer($property, $value, $vendors: webkit moz){
+    @if length($vendors) > 0 { // add prefixed versions if a vendor list is defined
+        @each $vendor in $vendors {
+            -#{$vendor}-#{$property}: #{$value};
+        }
+    }
+    #{$property}: #{$value}; // prefix free value at the end
+}
+
+
+/**
+ * Adds prefixed version of values in a property
+ */
+@mixin value-prefixer($property, $value, $content, $vendors: webkit moz){
+    $p-open: "(";
+    $p-close: ")";
+
+    @if length($vendors) > 0 {
+        @each $vendor in $vendors {
+            #{$property}: -#{$vendor}-#{$value}#{$p-open}#{$content}#{$p-close};
+        }
+    }
+    #{$property}: #{$value}#{$p-open}#{$content}#{$p-close};
+}
