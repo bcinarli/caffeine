@@ -5,13 +5,13 @@
   "authors": [
     "Bilal Cinarli <bcinarli@gmail.com>"
   ],
-  "description": "Caffeine is a set of SASS mixins and functions ready use for projects. ",
+  "description": "Caffeine is a set of SASS mixins and functions ready use for projects.",
   "main": "lib/_caffeine.scss",
   "keywords": [
-	"sass",
-	"css",
+    "sass",
+    "css",
     "sass-mixins",
-	"sass-functions"
+    "sass-functions",
     "melange",
     "style"
   ],
@@ -20,7 +20,8 @@
     "**/.*",
     "node_modules",
     "bower_components",
-	"docs",
-    "tests"
+    "docs",
+    "tests",
+    "test"
   ]
 }
