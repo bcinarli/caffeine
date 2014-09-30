@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Caffeine Function & Mixin tests</title>
+		<link rel="stylesheet" href="tests.css" />
+		<style>
+			.page-wrap { width: 960px; padding: 50px 0; margin: 0 auto; }
+			pre { padding: 1em; border: 1px solid #eee; border-radius: 3px; background-color: #fafafa; }
+		</style>
+	</head>
+	
+	<body>
+		<div id="wrapper" class="page-wrap">
+			<section class="test">
+				<h1 class="test-heading">Text Mixins</h1>
+				
+				<pre>
+.font-size {
+    @include font-size(14px);
+}
+				</pre>
+				<p class="font-size">This text should have both REM font unit and PX fallback<p>
+			</section>
+		</div>
+	</body>
+</html>

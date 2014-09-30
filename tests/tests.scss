@@ -1,0 +1,11 @@
+/**
+  * @author Bilal Cinarli
+  * Caffeine Function and Mixin Tests
+  */
+  
+@import "../lib/caffeine";
+
+// @mixin font-size($font-size)
+.font-size {
+	@include font-size(14px);
+}
