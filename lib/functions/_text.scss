@@ -7,6 +7,12 @@
   * Rem to PX
   */
 @function rem-to-px($font-size) {
+	$convert-base: 16px;
+	
+	@if variable_exists(base-font-size) {
+		$convert-base: $base-font-size;
+	}
+	
     $u: unit($font-size);
 
     @if($u == 'px'){
@@ -14,20 +20,28 @@
     }
 
     $unitless: remove-unit($font-size);
-    @return $unitless * $base-font-size;
+    @return $unitless * $convert-base;
 }
 
 /**
  * REM converter
+ * in style's config, we hope to have a base-font-size variable,
+ * if not, we define it according to standart html font-size
  */
 @function rem($font-size) {
+	$convert-base: 16px;
+	
+	@if variable_exists(base-font-size) {
+		$convert-base: $base-font-size;
+	}
+	
     $u: unit($font-size);
 
     // rem calculations
     @if ($u == 'rem'){
         @return $font-size;
     } @else {
-        $convert: $font-size/$base-font-size;
+        $convert: $font-size/$convert-base;
         @return #{$convert}rem;
     }
 }

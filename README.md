@@ -4,11 +4,13 @@ Caffeine is a set of SASS mixins and functions ready to use for projects. First 
 
 ## Installation
 Caffeine can directly install your project by copying the contents of lib folder to your assets, and [npm](https://www.npmjs.org/) or [bower](http://bower.io) packages. Just run,
+with npm (_npm package renamed to `kafein` due to name conflicts_)
 
 ```
 npm install kafein
 ```
-_npm package renamed to `kafein` due to name conflicts_
+
+or with bower
 
 ```
 bower install caffeine

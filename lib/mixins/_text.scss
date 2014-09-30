@@ -23,12 +23,17 @@
  * Font-Size callback
  */
 @mixin font-size($font-size){
+	$ie8-support: true;
+	@if variable_exists(support-for-ie8){
+		$ie8-support: $support-for-ie8;
+	}
+	
     @if ($font-size == inherit){
         font-size: inherit;
     }
 
     @else {
-        @if($support-for-ie8 == true){
+        @if($ie8-support == true){
             font-size: rem-to-px($font-size);
         }
         font-size: rem($font-size);

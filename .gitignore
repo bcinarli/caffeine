@@ -1,0 +1,3 @@
+*.codekit
+*.sass-cache
+tests/tests.css.map
