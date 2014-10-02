@@ -7,6 +7,8 @@
  * CSS Transform
  *
  * Outputs CSS3 tranform code with defined prefixes
+ * http://caniuse.com/#search=transform
+ * current spec, Safari, Android browser and IE9 need vendor prefix
  */
 @mixin transform($content...){
     @include prefixer(transform, $content, webkit ms);

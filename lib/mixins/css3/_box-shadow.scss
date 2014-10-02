@@ -7,7 +7,10 @@
  * Simple Box shadow
  *
  * @param $content: box-shadow content
+ * http://caniuse.com/#search=box-shadow 
+ * current spec, only Android browser 2.3 need -webkit prefix
+ * You can use standart CSS box shadow definition
  */
 @mixin box-shadow($content...) {
-    @include prefixer(box-shadow, $content);
+    @include prefixer(box-shadow, $content, webkit);
 }
