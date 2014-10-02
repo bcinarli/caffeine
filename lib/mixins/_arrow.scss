@@ -3,54 +3,42 @@
 /** -------------------------------------------
     Arrow
     ------------------------------------------- **/
-@mixin arrow ($color, $size, $position: top){
-    // defaults
-    $el: "&:after";
-
-    $border-side: border-bottom-color;
-    $margin-side: margin-left;
-
-    $arrow-size: nth($size, 1);
-    $arrow-background-color: nth($color, 1);
-
-    @if $position == right {
-        $border-side: border-left-color;
-        $margin-side: margin-top;
-    }
-    @else if $position == bottom {
-        $border-side: border-top-color;
-        $margin-side: margin-left;
-    }
-    @else if $position == left {
-        $border-side: border-right-color;
-        $margin-side: margin-top;
-    }
-
-    &:after,
-    &:before {
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        @include dims(0);
-        content: "";
-        border: solid transparent;
-        pointer-events: none;
-    }
-
-    &:after {
-        #{$margin-side}: -1 * $arrow-size;
-        #{$border-side}: $arrow-background-color;
-        border-width: $arrow-size;
-    }
-
-    @if length($size) == 2 {
-        $arrow-border-color: nth($color, 2);
-        $arrow-border-size: nth($size, 2);
-
-        &:before {
-            #{$margin-side}: -1 * ($arrow-size + $arrow-border-size);
-            #{$border-side}: $arrow-border-color;
-            border-width: ($arrow-size + $arrow-border-size);
-        }
-    }
+@mixin arrow ($color, $size, $direction: top, $el: ':after'){
+	$_color: nth($color, 1);
+	$_size: nth($size, 1);
+	
+	$_border-side: "border-bottom-color";
+	
+	@if length($color) == 2 {
+		$_size2: $_size;
+		
+		@if length($size) == 2 {
+			$_size2: nth($size, 2);
+		}
+		
+		@include arrow(nth($color, 2), $_size2, $direction, ':before');
+	}
+	
+	@if $direction == "right" {
+		$_border-side: "border-left-color";
+	}
+	
+	@else if $direction == "bottom" {
+		$_border-side: "border-top-color";
+	}
+	
+	@else if $direction == "left" {
+		$_border-side: "border-right-color";
+	}
+	
+	&#{$el} {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border: solid transparent;
+        #{$_border-side}: $_color;
+        border-width: $_size;
+		pointer-events: none;
+	}
 }
