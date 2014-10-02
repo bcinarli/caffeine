@@ -9,7 +9,11 @@
 		<style>
 			.page-wrap { width: 960px; padding: 50px 0; margin: 0 auto; }
 			pre { padding: 1em; border: 1px solid #eee; border-radius: 3px; background-color: #fafafa; }
-			.test { position: relative; }
+			.tests { padding-bottom: 2em; margin-bottom: 2em; border-bottom: 1px solid #eee; }
+			.tests:last-child { padding-bottom: 0; border-bottom: 0; }
+			.test { position: relative; margin-top: 1em; }
+			.test:first-child { margin-top: 0; }
+			
 			
 			textarea, 
 			input:not([type="checkbox"]),
@@ -25,6 +29,59 @@
 	<body>
 		<div id="wrapper" class="page-wrap">
 			<h1 class="test-title"><a href="http://github.com/bcinarli/caffeine">Caffeine</a> Tests</h1> 
+			
+			<section class="tests">
+				<h2 class="tests-heading">CSS3 Mixins</h2>
+				
+				<article class="test">
+					<h3 class="test-heading">Box Shadow</h3>
+<pre>
+.box-shadow {
+  @include box-shadow(0 0 1px rgba(0, 0, 0, .3));
+}
+</pre>
+					<p class="single-test box-shadow">
+						This paragraph will have a <code>0 0 1px</code> with 30% transparent black
+					</p>
+				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Transform</h3>
+<pre>
+.transform-rotate {
+  @include transform(rotate(15deg));
+}
+
+.transform-skew {
+  @include transform(skew(15deg));
+}
+</pre>
+					<p class="single-test">
+						<span class="transform-rotate">This box is rotated 15deg</span>
+					</p>
+					<p>&nbsp;</p>
+					<p class="single-test">
+						<span class="transform-skew">This box is skewed 15deg</span>
+					</p>
+				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Transition</h3>
+<pre>
+.transition-size,
+.transition-radius {
+  @include transition(all ease .4s);
+}
+</pre>
+					<p class="single-test">
+						<span class="transition-size">This box will resize on mouse enter</span>
+					</p>
+					<p>&nbsp;</p>
+					<p class="single-test">
+						<span class="transition-radius">This box's radius will change on mouse enter</span>
+					</p>
+				</article>
+			</section>
 			
 			<section class="tests">
 				<h2 class="tests-heading">Text Mixins</h2>
