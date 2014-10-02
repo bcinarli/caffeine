@@ -3,16 +3,28 @@
 /** -------------------------------------------
     Placeholder
     ------------------------------------------- **/
-@mixin placeholder() {
-    ::-webkit-input-placeholder {
+/**
+  * Styles input elements' placeholder. 
+  * @param $self: true, if it is true, styles applied to class itself
+  *			if false, styles applied to the child elements
+  */
+
+@mixin placeholder($self: true) {
+	$_self: '&';
+	
+	@if $self != true {
+		$_self: '';
+	}
+	
+    #{$_self}::-webkit-input-placeholder {
         @content;
     }
 
-    ::-moz-placeholder {
+    #{$_self}::-moz-placeholder {
         @content;
     }
 
-    :-ms-input-placeholder {
+    #{$_self}:-ms-input-placeholder {
         @content;
     }
 }
