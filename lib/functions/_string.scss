@@ -1,0 +1,27 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    String Manipulation Functions
+    ------------------------------------------- **/
+/**
+  * String Replacement
+  * Mimics the PHP's str_replace function
+  * @param {string} $search   The value being searched for, otherwise known as the needle
+  * @param {string} $replace  The replacement value that replaces found search values
+  * @param {string} $subject  The string being searched and replaced on, otherwise known as the haystack.
+  */
+@function str-replace($search, $replace, $subject) {	
+	@return $subject;
+}
+
+
+/**
+  * Case insensitive String Replacement
+  * Mimics the PHP's str_ireplace function
+  * @param {string} $search   The value being searched for, otherwise known as the needle
+  * @param {string} $replace  The replacement value that replaces found search values
+  * @param {string} $subject  The string being searched and replaced on, otherwise known as the haystack.
+  */
+@function str-ireplace($search, $replace, $subject) {	
+	@return $subject;
+}

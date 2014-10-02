@@ -81,6 +81,26 @@
 						<span class="transition-radius">This box's radius will change on mouse enter</span>
 					</p>
 				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Linear Gradient</h3>
+<pre>
+.linear-gradient {
+  @include linear-gradient(to bottom, #ccc, #999);
+}
+</pre>
+					<p class="single-test linear-gradient"></p>
+				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Radial Gradient</h3>
+<pre>
+.radial-gradient {
+  @include radial-gradient(ellipse at center, #ccc, #999, #222);
+}
+</pre>
+					<p class="single-test radial-gradient"></p>
+				</article>
 			</section>
 			
 			<section class="tests">

@@ -12,7 +12,7 @@
  * @param $content
  */
 @mixin linear-gradient($content...){
-    @include value-prefixer(background, linear-gradient, $content, webkit moz ms o);
+    @include value-prefixer(background, linear-gradient, $content, webkit);
 }
 
 
@@ -25,5 +25,5 @@
  * @param $content
  */
 @mixin radial-gradient($content...){
-    @include value-prefixer(background, radial-gradient, $content, webkit moz ms o);
+    @include value-prefixer(background, radial-gradient, $content, webkit);
 }
