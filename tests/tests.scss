@@ -9,3 +9,39 @@
 .font-size {
 	@include font-size(14px);
 }
+
+// @mixin placeholder()
+.placeholder {
+	@include placeholder {
+		font-style: italic;
+	}
+}
+
+// @mixin arrow($color, $size, $direction, $el)
+.arrow-top {
+	@include arrow(lightblue, 10px);
+}
+
+.arrow-right {
+	@include arrow(olive, 10px, right);
+}
+
+.arrow-bottom {
+	@include arrow(turquoise, 10px, bottom);
+}
+
+.arrow-left {
+	@include arrow(yellow, 10px, left);
+}
+
+.bordered-arrow {
+	position: relative;
+	display: block;
+	min-height: 20px;
+	@include arrow(lightblue navy, 10px 12px);
+	
+	&:after {
+		top: 4px;
+		left: 2px;
+	}
+}

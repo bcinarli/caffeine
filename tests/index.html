@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Caffeine Function &amp; Mixin tests</title>
+		<meta name="viewport" content="initial-scale=1, width=device-width">
+		
+		<link rel="stylesheet" href="tests.css" />
+		<style>
+			.page-wrap { width: 960px; padding: 50px 0; margin: 0 auto; }
+			pre { padding: 1em; border: 1px solid #eee; border-radius: 3px; background-color: #fafafa; }
+			.test { position: relative; }
+			
+			textarea, 
+			input:not([type="checkbox"]),
+			input:not([type="radio"]) {
+				min-width: 25em;
+				padding: 5px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="wrapper" class="page-wrap">
+			<h1 class="test-title"><a href="http://github.com/bcinarli/caffeine">Caffeine</a> Tests</h1> 
+			
+			<section class="tests">
+				<h2 class="tests-heading">Text Mixins</h2>
+				
+				<article class="test">
+					<h3 class="test-heading">Font Size</h3>			
+<pre>
+.font-size {
+  @include font-size(14px);
+}
+</pre>
+					<p class="single-test font-size">This text should have both REM font unit and PX fallback<p>
+				</article>
+			</section>
+			
+			<section class="tests">
+				<h2 class="tests-heading">Form Related Mixins</h2>
+				
+				<article class="test">
+					<h3 class="test-heading">Placeholder</h3>
+<pre>
+.placeholder {
+  @include placeholder {
+    font-style: italic;
+  }
+}
+</pre>
+					<p class="single-test"><input placeholder="This is default browser style" /></p>
+					<p class="single-test"><input placeholder="Styled placeholder" class="placeholder" /></p>
+					<p class="single-test"><textarea placeholder="Styled placeholder" class="placeholder"></textarea></p>
+				</article>
+			</section>
+			
+			<section class="tests">
+				<h2 class="tests-heading">Other Mixins</h2>
+				
+				<article class="test">
+					<h3 class="test-heading">CSS Arrows</h3>
+<pre>
+.arrow-top {
+  @include arrow(lightblue, 10px);
+}
+
+.arrow-right {
+  @include arrow(olive, 10px, right);
+}
+
+.arrow-bottom {
+  @include arrow(turquoise, 10px, bottom);
+}
+
+.arrow-left {
+  @include arrow(yellow, 10px, left);
+}
+</pre>
+					<div style="position: relative; height: 20px;">
+						<p class="single-test"><span class="arrow-top"></span></p>
+						<p class="single-test"><span class="arrow-right"></span></p>
+						<p class="single-test"><span class="arrow-bottom"></span></p>
+						<p class="single-test"><span class="arrow-left"></span></p>
+					</div>
+					
+<pre>
+.bordered-arrow {
+  @include arrow(lightblue navy, 10px 12px);
+}
+</pre>
+					<p class="single-test"><span class="bordered-arrow"></span></p>
+					<p><em>Because of size, position issues, you have to position arrows manually</em></p>
+				</article>
+			</section>
+		</div>
+	</body>
+</html>
