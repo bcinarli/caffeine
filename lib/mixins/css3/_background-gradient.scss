@@ -9,9 +9,9 @@
  * For old browsers do not forget to add fallback color/image before mixin
  * Uses new linear gradient version. Not supporting Safari 5 or older and IE9 and older versions
  *
- * @param $content
+ * @param string $content
  */
-@mixin linear-gradient($content...){
+@mixin linear-gradient($content){	
     @include value-prefixer(background, linear-gradient, $content, webkit);
 }
 
@@ -24,6 +24,6 @@
  *
  * @param $content
  */
-@mixin radial-gradient($content...){
+@mixin radial-gradient($content){
     @include value-prefixer(background, radial-gradient, $content, webkit);
 }

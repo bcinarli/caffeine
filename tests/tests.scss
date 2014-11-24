@@ -54,14 +54,14 @@
 
 // @mixin linear-gradient
 .linear-gradient {
-	@include linear-gradient(to bottom, #ccc, #999);
+	@include linear-gradient("to bottom, #ccc, #999");
 	
 	height: 100px;
 }
 
 // @mixin radial-gradient
 .radial-gradient {
-	@include radial-gradient(ellipse at center, #ccc, #999, #222);
+	@include radial-gradient("ellipse at center, #ccc, #999, #222");
 	
 	width: 100px;
 	height: 100px;
