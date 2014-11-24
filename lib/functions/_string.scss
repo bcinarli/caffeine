@@ -10,8 +10,31 @@
   * @param {string} $replace  The replacement value that replaces found search values
   * @param {string} $subject  The string being searched and replaced on, otherwise known as the haystack.
   */
-@function str-replace($search, $replace, $subject) {	
-	@return $subject;
+@function str-replace($string, $substr, $newsubstr, $all: 0) {
+  $position-found: str-index($string, $substr);
+  $processed: ();
+
+  @while ($position-found and $position-found > 0) {
+    $length-substr: str-length($substr);
+    $processed: append($processed, str-slice($string, 0, $position-found - 1));
+    $processed: append($processed, $newsubstr);
+    $string: str-slice($string, $position-found + $length-substr);
+
+    $position-found: 0;
+
+    @if ($all > 0) {
+      $position-found: str-index($string, $substr);
+    }
+  }
+
+  $processed: append($processed, $string);
+  $string: "";
+
+  @each $s in $processed {
+    $string: #{$string}#{$s};
+  }
+
+  @return $string;
 }
 
 
