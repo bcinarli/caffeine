@@ -6,17 +6,19 @@
 /**
  * Fontface
  */
-@mixin fontface($name, $file, $weight: normal, $style: normal){
+@mixin font-face($name, $file, $weight: normal, $style: normal){
     @font-face {
         font-family: "#{$name}";
-        src: url("../fonts/#{$file}.eot?-4c6bhg");
-        src: url("../fonts/#{$file}.eot?#iefix-4c6bhg") format("embedded-opentype"),
-        url("../fonts/#{$file}.woff?-4c6bhg") format("woff"),
-        url("../fonts/#{$file}.ttf?-4c6bhg") format("truetype"),
-        url("../fonts/#{$file}.svg?-4c6bhg#webfont") format("svg");
+        src: url("../fonts/#{$file}.eot?caffeine");
+        src: url("../fonts/#{$file}.eot?#caffeine") format("embedded-opentype"),
+        	 url("../fonts/#{$file}.woff?caffeine") format("woff");
         font-weight: $weight;
         font-style: $style;
     }
+}
+
+@mixin fontface($name, $file, $weight: normal, $style: normal){
+    @include font-face($name, $file, $weight, $style);
 }
 
 /**
