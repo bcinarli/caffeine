@@ -1,3 +1,6 @@
+## Version 0.2.1
+- NEW: app-transition() mixin added for easily defining general transitions for app
+
 ## Version 0.2.0
 - NEW: true/false parameter added to placeholder mixin in order to define placeholder styles to element itself of its children.
 - CHANGED: arrow mixin changed only for using single :pseudo element for each triangle.
