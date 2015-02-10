@@ -13,3 +13,14 @@
 @mixin transform($content...){
     @include prefixer(transform, $content, webkit ms);
 }
+
+/**
+ * CSS Transform Origin
+ *
+ * Outputs CSS3 tranform-origin code with defined prefixes
+ * http://caniuse.com/#search=transform
+ * current spec, Safari, Android browser and IE9 need vendor prefix
+ */
+@mixin transform-origin($content...){
+    @include prefixer(transform-origin, $content, webkit ms);
+}
