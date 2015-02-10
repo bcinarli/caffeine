@@ -14,3 +14,12 @@
 @mixin transition($content...){
     @include prefixer(transition, $content, webkit);
 }
+
+/**
+ * App Transition
+ *
+ * General transition definition for app
+ */
+@mixin app-transition(){
+    @include transition(all $base-duration $base-easing);
+}
