@@ -23,6 +23,13 @@
 				border: 1px solid #ccc;
 				border-radius: 3px;
 			}
+			
+			.centering {
+				position: relative;
+				width: 100%;
+				height: 150px;
+				background: #fafafa;
+			}
 		</style>
 	</head>
 	
@@ -100,6 +107,49 @@
 }
 </pre>
 					<p class="single-test radial-gradient"></p>
+				</article>
+			</section>
+			
+			<section class="tests">
+				<h2 class="tests-heading">Position Mixins</h2>
+				
+				<article class="test">
+					<h3 class="test-heading">Center</h3>
+					
+<pre>
+.center {
+  @include center();
+}
+</pre>
+					<p class="single-test centering">
+						<span class="center">This element should be centered both vertical and horizontal</span>
+					</p>
+				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Vertical Center</h3>
+					
+<pre>
+.center-vertical {
+  @include center-vertical();
+}
+</pre>
+					<p class="single-test centering">
+						<span class="center-vertical">This element should be centered vertically</span>
+					</p>
+				</article>
+				
+				<article class="test">
+					<h3 class="test-heading">Horizontal Center</h3>
+					
+<pre>
+.center-horizontal {
+  @include center-horizontal();
+}
+</pre>
+					<p class="single-test centering">
+						<span class="center-horizontal">This element should be centered horizontally</span>
+					</p>
 				</article>
 			</section>
 			

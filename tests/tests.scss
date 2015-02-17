@@ -79,6 +79,21 @@
 	}
 }
 
+// @mixin center()
+.center {
+	@include center();
+}
+
+// @mixin center-vertical()
+.center-vertical {
+	@include center-vertical();
+}
+
+// @mixin center-horizontal()
+.center-horizontal {
+	@include center-horizontal();
+}
+
 // @mixin arrow($color, $size, $direction, $el)
 .arrow-top {
 	@include arrow(lightblue, 10px);
