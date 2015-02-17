@@ -1,0 +1,41 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Positions
+    ------------------------------------------- **/
+/**
+  * Center
+  * Applied to absolute positined elements. 
+  * Element is centered both vertically and horizontally
+  */
+@mixin center(){
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translateY(-50%) translateX(-50%));
+}
+
+
+/**
+  * Vertical Center
+  */
+@mixin center-vertical(){
+	top: 50%;
+	@include transform(translateY(-50%));
+}
+
+/**
+ * Horizontal Center
+ * Centers the element horizontally 
+ * Uses margin: 0 auto; when $type defined as "static"
+ * By default it uses the 
+ */
+@mixin center-horizontal($type: absolute){
+	@if $type == absolute {
+		left: 50%;
+		@include transform(translateX(-50%));
+	}
+	@else {
+		margin: 0 auto;
+	}
+}
