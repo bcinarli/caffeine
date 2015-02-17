@@ -1,3 +1,8 @@
+## Version 0.3.0
+- NEW: center() mixin added for centering elements
+- NEW: center-vertical() mixin added for centering element vertically
+- NEW: center-horizontal() mixin added for centering element horizontally
+
 ## Version 0.2.1
 - NEW: app-transition() mixin added for easily defining general transitions for app
 
