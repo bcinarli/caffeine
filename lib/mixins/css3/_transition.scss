@@ -9,7 +9,6 @@
  * Outputs CSS3 transition code with defined prefixes
  * http://caniuse.com/#search=transition
  * current spec, older Android browsers and Safari 5.1 need -webkit
- * You can use standart CSS box shadow definition
  */
 @mixin transition($content...){
     @include prefixer(transition, $content, webkit);

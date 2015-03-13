@@ -1,0 +1,139 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Columns Related Mixins
+    ------------------------------------------- **/
+/**
+ * CSS Columns
+ *
+ * Outputs CSS3 Columns with defined prefixes
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/columns
+ * Formal syntax: <'column-width'> || <'column-count'>
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin columns($content...){
+    @include prefixer(columns, $content);
+}
+
+
+/**
+ * CSS Column Count
+ *
+ * Outputs CSS3 Column Count
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-count
+ * Formal syntax: <number> | auto
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-count($number){
+	@include prefixer(column-count, $number);
+}
+
+
+/**
+ * CSS Column Width
+ *
+ * Outputs CSS3 Column Width
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-width
+ * Formal syntax: <length> | auto
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-width($width){
+	@include prefixer(column-width, $width);
+}
+
+
+/**
+ * CSS Column Gap
+ *
+ * Outputs CSS3 Column Gap
+ * http://caniuse.com/#search=column
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-gap($gap){
+	@include prefixer(column-gap, $gap);
+}
+
+
+/**
+ * CSS Column Rule
+ *
+ * Outputs CSS3 Column Rule, shorthand definition for column rule styles
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule
+ * Formal syntax: <'column-rule-width'> || <'column-rule-style'> || <'column-rule-color'>
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-rule($rule){
+	@include prefixer(column-rule, $rule);
+}
+
+
+/**
+ * CSS Column Rule Color
+ *
+ * Outputs CSS3 Column Rule Color
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color
+ * Formal syntax: <color>
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-rule-color($color){
+	@include prefixer(column-rule-color, $color);
+}
+
+
+/**
+ * CSS Column Rule Style
+ *
+ * Outputs CSS3 Column Rule Style
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-style
+ * Formal syntax: <style>
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-rule-style($style){
+	@include prefixer(column-rule-style, $style);
+}
+
+/**
+ * CSS Column Rule Width
+ *
+ * Outputs CSS3 Column Rule Width
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width
+ * Formal syntax: <br-width>
+ * Available values: thin || medium || thick || number px || number em
+ * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
+ */
+@mixin column-rule-width($width){
+	@include prefixer(column-rule-width, $width);
+}
+
+/**
+ * CSS Column Span
+ *
+ * Outputs CSS3 Column Span
+ * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-span
+ * Formal syntax: none | all
+ * Currently, except firefox, all vendors supporting this feature. Webkit browsers need prefix
+ */
+@mixin column-span($span){
+	@include prefixer(column-span, $span, webkit);
+}
+
+
+/**
+ * CSS Column Fill
+ *
+ * Outputs CSS3 Column Fill
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill
+ * Formal syntax: auto | balance
+ * Currently only firefox supports
+ */
+@mixin column-fill($fill){
+	@include prefixer(column-fill, $fill);
+}
