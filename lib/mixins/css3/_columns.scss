@@ -50,6 +50,8 @@
  *
  * Outputs CSS3 Column Gap
  * http://caniuse.com/#search=column
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap
+ * Formal syntax: <length> | normal
  * current spec, except IE, all browsers need vendor prefix either -moz or -webkit
  */
 @mixin column-gap($gap){

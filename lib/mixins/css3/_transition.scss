@@ -8,10 +8,52 @@
  *
  * Outputs CSS3 transition code with defined prefixes
  * http://caniuse.com/#search=transition
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+ * Formal syntax: [ none | <single-transition-property> ] || <time> || <timing-function> || <time>
  * current spec, older Android browsers and Safari 5.1 need -webkit
  */
 @mixin transition($content...){
     @include prefixer(transition, $content, webkit);
+}
+
+/**
+ * CSS Transition Delay
+ * Outputs CSS3 transition-delay code with defined pferixes
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay
+ * Formal syntax: <time>#
+ */
+@mixin transition-delay($time){
+	@include prefixer(transition-delay, $time, webkit);
+}
+
+/**
+ * CSS Transition Duration
+ * Outputs CSS3 transition-duration code with defined pferixes
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration
+ * Formal syntax: <time>#
+ */
+@mixin transition-duration($time){
+	@include prefixer(transition-duration, $time, webkit);
+}
+
+/**
+ * CSS Transition Property
+ * Outputs CSS3 transition-property code with defined pferixes
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property
+ * Formal syntax: none | <single-transition-property>#  [ ‘,’ <single-transition-property># ]*
+ */
+@mixin transition-property($content...){
+	@include prefixer(transition-property, $content, webkit);
+}
+
+/**
+ * CSS Transition Timing
+ * Outputs CSS3 transition-timing-function code with defined pferixes
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function
+ * Formal syntax: <timing-function>#
+ */
+@mixin transition-timing-function($content...){
+	@include prefixer(transition-timing-function, $content, webkit);
 }
 
 /**
