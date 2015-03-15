@@ -8,6 +8,9 @@
  *
  * Outputs CSS3 tranform code with defined prefixes
  * http://caniuse.com/#search=transform
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transform
+ * Formal syntax: none | <transform-function>+
+ * For transform functions see: https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function
  * current spec, Safari, Android browser and IE9 need vendor prefix
  */
 @mixin transform($content...){
@@ -19,8 +22,23 @@
  *
  * Outputs CSS3 tranform-origin code with defined prefixes
  * http://caniuse.com/#search=transform
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+ * Formal syntax: [ <percentage> | <length> | left | center | right | top | bottom] | [ [ <percentage> | <length> | left | center | right ] && [ <percentage> | <length> | top | center | bottom ] ] <length>?
  * current spec, Safari, Android browser and IE9 need vendor prefix
  */
 @mixin transform-origin($content...){
     @include prefixer(transform-origin, $content, webkit ms);
+}
+
+/**
+ * CSS Transform Style
+ *
+ * Outputs CSS3 tranform-style code with defined prefixes
+ * http://caniuse.com/#search=transform
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style
+ * Formal syntax: flat | preserve-3d | inherit
+ * current spec, IE is not supported, webkit browsers need prefixing
+ */
+@mixin transform-style($style){
+    @include prefixer(transform-style, $style, webkit);
 }
