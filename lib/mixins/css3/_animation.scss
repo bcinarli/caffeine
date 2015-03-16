@@ -1,0 +1,121 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Animation Related Mixins
+    ------------------------------------------- **/
+/**
+ * CSS Animation
+ *
+ * Outputs CSS3 animation code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+ * Formal syntax: <single-animation-name> || <time> || <timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state>
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation($content...){
+    @include prefixer(animation, $content, webkit);
+}
+
+/**
+ * CSS Animation Delay
+ *
+ * Outputs CSS3 animation-delay code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay
+ * Formal syntax: <time>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-delay($content...){
+    @include prefixer(animation-delay, $content, webkit);
+}
+
+/**
+ * CSS Animation Direction
+ *
+ * Outputs CSS3 animation-direction code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction
+ * Formal syntax: <single-animation-direction>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-direction($content...){
+    @include prefixer(animation-direction, $content, webkit);
+}
+
+/**
+ * CSS Animation Duration
+ *
+ * Outputs CSS3 animation-duration code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration
+ * Formal syntax: <time>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-duration($content...){
+    @include prefixer(animation-duration, $content, webkit);
+}
+
+/**
+ * CSS Animation Fill Mode
+ *
+ * Outputs CSS3 animation-fill-mode code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode
+ * Formal syntax: <single-animation-fill-mode>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-fill-mode($content...){
+    @include prefixer(animation-fill-mode, $content, webkit);
+}
+
+/**
+ * CSS Animation Iteration Count
+ *
+ * Outputs CSS3 animation-iteration-count code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count
+ * Formal syntax: <single-animation-iteration-count>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-iteration-count($content...){
+    @include prefixer(animation-iteration-count, $content, webkit);
+}
+
+/**
+ * CSS Animation Name
+ *
+ * Outputs CSS3 animation-name code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name
+ * Formal syntax: <single-animation-name>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-name($content...){
+    @include prefixer(animation-name, $content, webkit);
+}
+
+/**
+ * CSS Animation Play State
+ *
+ * Outputs CSS3 animation-play-state code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state
+ * Formal syntax: <single-animation-play-state>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-play-state($content...){
+    @include prefixer(animation-play-state, $content, webkit);
+}
+
+/**
+ * CSS Animation Timing Function
+ *
+ * Outputs CSS3 animation-timing-function code with defined prefixes
+ * http://caniuse.com/#search=css3%20animation
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+ * Formal syntax: <single-animation-timing-function>#
+ * current spec, webkit browsers need prefixing
+ */
+@mixin animation-timing-function($content...){
+    @include prefixer(animation-timing-function, $content, webkit);
+}
