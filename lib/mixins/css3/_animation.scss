@@ -132,11 +132,11 @@
  * current spec, webkit browsers need prefixing
  */
 @mixin keyframes($animation-name){
-	@-webkit-keyframes $animation-name {
+	@-webkit-keyframes #{$animation-name} {
 		@content;
 	}
 	
-	@keyframes $animation-name {
+	@keyframes #{$animation-name} {
 		@content;
 	}
 }
