@@ -119,3 +119,24 @@
 @mixin animation-timing-function($content...){
     @include prefixer(animation-timing-function, $content, webkit);
 }
+
+/**
+ * CSS Keyframes
+ *
+ * Outputs CSS3 keyframes code with defined prefixes
+ * http://caniuse.com/#search=keyframes
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+ * @keyframes <identifier> {
+ * 	[ [ from | to | <percentage> ] [, from | to | <percentage> ]* block ]*
+ * }
+ * current spec, webkit browsers need prefixing
+ */
+@mixin keyframes($animation-name){
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+	
+	@keyframes $animation-name {
+		@content;
+	}
+}
