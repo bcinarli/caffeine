@@ -1,0 +1,17 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Flex Mixins
+    ------------------------------------------- **/
+/**
+ * CSS Flex
+ *
+ * Outputs Flex code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * Formal syntax: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+ * current spec, webkit browsers need prefixing
+ */
+@mixin flex {
+	@include value-prefixer(display, flex, $content, webkit);
+}
