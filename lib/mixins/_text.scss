@@ -41,3 +41,16 @@
         font-size: rem($font-size);
     }
 }
+
+/**
+ * Disable Select
+ * It is useful for mobil applications
+ * Prevents text selection when swipe or double click
+ * http://caniuse.com/#search=user-select
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+ * Formal syntax: none | text | all | element
+ * Current spec, all vendors need prefixing
+ */
+@mixin disable-text-select(){
+	@include prefixer('user-select', none, webkit moz ms);
+}
