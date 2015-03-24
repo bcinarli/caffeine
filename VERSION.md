@@ -1,3 +1,10 @@
+## Version 0.4.0
+- NEW: CSS3 Columns related mixins added. See [_columns.scss](lib/mixins/css3/_columns.scss)
+- NEW: CSS3 Transition property mixins added. See [_transition.scss](lib/mixins/css3/_transition.scss)
+- NEW: CSS3 Animation mixins added. See [_animation.scss](lib/mixins/css3/_animation.scss)
+- NEW: Disable Text Selection mixin added. See [_text.scss](lib/mixins/_text.scss)
+- CHANGE: Transform definition and inline docs updated. 
+
 ## Version 0.3.0
 - NEW: center() mixin added for centering elements
 - NEW: center-vertical() mixin added for centering element vertically
