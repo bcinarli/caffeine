@@ -17,6 +17,6 @@ bower install caffeine
 ```
 
 After copying the files, at the top of your SASS file add the following line
-```
+```SCSS
 @import "<path-to-caffeine>/caffeine";
 ```
