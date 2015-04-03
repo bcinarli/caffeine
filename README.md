@@ -1,6 +1,6 @@
 #Caffeine
 
-Caffeine is a set of SASS mixins and functions ready to use for projects. First versions of Caffeine were embedded as \_system definitions in [Melange](http://melange.io). As the mixins and functions grow, they are seperated from Melange in order to use them freely.
+Caffeine is a set of Sass mixins and functions ready to use for projects. First versions of Caffeine were embedded as \_system definitions in [Melange](http://melange.io). As the mixins and functions grow, they are seperated from Melange in order to use them freely.
 
 ## Installation
 Caffeine can directly install your project by copying the contents of lib folder to your assets, and [npm](https://www.npmjs.org/) or [bower](http://bower.io) packages. Just run,
@@ -16,7 +16,7 @@ or with bower
 bower install caffeine
 ```
 
-After copying the files, at the top of your SASS file add the following line
+After copying the files, at the top of your Sass file add the following line
 ```SCSS
 @import "<path-to-caffeine>/caffeine";
 ```
