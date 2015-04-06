@@ -7,11 +7,22 @@
  * Fontface
  */
 @mixin font-face($name, $file, $weight: normal, $style: normal){
+    $ie8-support: false;
+    $eot: "";
+
+    @if variable_exists(support-for-ie8){
+        $ie8-support: $support-for-ie8;
+    }
+
+    @if($ie8-support == true){
+        $eot: 'url("../fonts/#{$file}.eot?#caffeine") format("embedded-opentype"),'
+    }
+
     @font-face {
         font-family: "#{$name}";
-        src: url("../fonts/#{$file}.eot?caffeine");
-        src: url("../fonts/#{$file}.eot?#caffeine") format("embedded-opentype"),
-        	 url("../fonts/#{$file}.woff?caffeine") format("woff");
+        src: #{$eot}
+             url("../fonts/#{$file}.woff?caffeine") format("woff"),
+             url("../fonts/#{$file}.ttf?caffeine") format("truetype");
         font-weight: $weight;
         font-style: $style;
     }
