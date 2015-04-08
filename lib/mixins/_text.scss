@@ -33,6 +33,42 @@
 }
 
 /**
+  * Font Icon
+  */
+@mixin font-icon($name, $file){
+	$prefix-icon : 'icon-';
+	$placeholder-icon: '%font-icon';
+	
+	@if variable_exists(icon-prefix){
+		$prefix-icon: $icon-prefix;
+	}
+	
+	@if variable_exists(icon-placeholder){
+		$placeholder-icon: $icon-placeholder;
+	}
+	
+	@include font-face($name, $file);
+	
+	#{$placeholder-icon} {
+		font: {
+			family: $name;
+			style: normal;
+			variant: normal;
+			weight: normal;
+		};
+		line-height: 1;
+		text-transform: none;
+		
+	    -webkit-font-smoothing: antialiased;
+	    -moz-osx-font-smoothing: grayscale;	    
+	}
+	
+	[class^="#{$prefix-icon}"]:before, [class*=" #{$prefix-icon}"]:before {
+	    @extend #{$placeholder-icon};
+	}
+}
+
+/**
  * Font-Size callback
  */
 @mixin font-size($font-size){
