@@ -1,3 +1,8 @@
+## Version 0.4.1
+- NEW: Font-icon decleration added
+- FIX: Missing break-point reference in caffeine
+- FIX: Missing font types for modern browsers
+
 ## Version 0.4.0
 - NEW: CSS3 Columns related mixins added. See [_columns.scss](lib/mixins/css3/_columns.scss)
 - NEW: CSS3 Transition property mixins added. See [_transition.scss](lib/mixins/css3/_transition.scss)
