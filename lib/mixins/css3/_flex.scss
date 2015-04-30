@@ -12,6 +12,45 @@
  * Formal syntax: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
  * current spec, webkit browsers need prefixing
  */
-@mixin flex {
+@mixin flex($content...) {
 	@include value-prefixer(display, flex, $content, webkit);
+}
+
+/**
+ * CSS Flex Basis
+ *
+ * Outputs Flex-Basis code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * Formal syntax: content | <'width'>
+ * current spec, webkit browsers need prefixing
+ */
+@mixin flex-basis($content) {
+	@include prefixer(flex-basis, $content, webkit);
+}
+
+/**
+ * CSS Flex Direction
+ *
+ * Outputs Flex-Direction code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * Formal syntax: content | [row | row-reverse | column | column-reverse]
+ * current spec, webkit browsers need prefixing
+ */
+@mixin flex-direction($content) {
+	@include prefixer(flex-direction, $content, webkit);
+}
+
+/**
+ * CSS Flex Wrap
+ *
+ * Outputs Flex-Wrap code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * Formal syntax: content | [nowrap | wrap | wrap-reverse]
+ * current spec, webkit browsers need prefixing
+ */
+@mixin flex-wrap($content) {
+	@include prefixer(flex-wrap, $content, webkit);
 }
