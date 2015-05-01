@@ -43,6 +43,42 @@
 }
 
 /**
+ * CSS Flex Grow
+ *
+ * Outputs Flex-Grow code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
+ * Formal syntax: <number>
+ * Initial Value: 0
+ * Negative values are invalid.
+ * current spec, webkit browsers need prefixing, Internet explorer and Safari is 
+ * not supporting this feature
+ */
+@mixin flex-grow($number) {
+	@include prefixer(flex-grow, $number, webkit);
+}
+
+/**
+ * CSS Flex Shrink
+ *
+ * Outputs Flex-Shrink code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink
+ * Formal syntax: <number>
+ * Initial Value: 1
+ * Negative values are invalid.
+ * current spec, webkit browsers need prefixing, Internet explorer and Safari is 
+ * not supporting this feature
+ *
+ * Notes:
+ * Internet Explorer 10 uses 0 instead of 1 as the initial value for the flex-shrink property. 
+ * A workaround is to always set an explicit value for flex-shrink.
+ */
+@mixin flex-shrink($number) {
+	@include prefixer(flex-shrink, $number, webkit);
+}
+
+/**
  * CSS Flex Wrap
  *
  * Outputs Flex-Wrap code with defined prefixes
