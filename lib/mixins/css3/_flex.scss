@@ -21,9 +21,16 @@
  *
  * Outputs Flex-Basis code with defined prefixes
  * http://caniuse.com/#search=flex
- * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis
  * Formal syntax: content | <'width'>
- * current spec, webkit browsers need prefixing
+ * Initial Value: auto
+ * current spec, webkit browsers need prefixing, however Safari is not supporting this feature
+ *
+ * Notes
+ * When a non-auto flex-basis is specified, Internet Explorer 10-11 (but not 12+) always 
+ * uses a content-box box model to calculate the size of a flex item, even if 
+ * box-sizing: border-box is applied to the element.
+ *
  */
 @mixin flex-basis($content) {
 	@include prefixer(flex-basis, $content, webkit);
@@ -34,9 +41,9 @@
  *
  * Outputs Flex-Direction code with defined prefixes
  * http://caniuse.com/#search=flex
- * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction
  * Formal syntax: content | [row | row-reverse | column | column-reverse]
- * current spec, webkit browsers need prefixing
+ * current spec, webkit browsers need prefixing, however Safari is not supporting this feature
  */
 @mixin flex-direction($content) {
 	@include prefixer(flex-direction, $content, webkit);
@@ -85,6 +92,7 @@
  * http://caniuse.com/#search=flex
  * https://developer.mozilla.org/en-US/docs/Web/CSS/flex
  * Formal syntax: content | [nowrap | wrap | wrap-reverse]
+ * Initial Value: nowrap
  * current spec, webkit browsers need prefixing
  */
 @mixin flex-wrap($content) {
