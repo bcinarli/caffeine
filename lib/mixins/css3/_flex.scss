@@ -98,3 +98,51 @@
 @mixin flex-wrap($content) {
 	@include prefixer(flex-wrap, $content, webkit);
 }
+
+/**
+ * CSS Flex Align Content
+ *
+ * Outputs align-content code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
+ * Formal syntax: content | [flex-start | flex-end | center | space-between | space-around | stretch]
+ * Initial Value: strecth
+ * current spec, webkit browsers need prefixing
+ *
+ * Notes:
+ * Internet Explorer and Safari are not supporting this feature yet even with vendor prefix
+ */
+@mixin align-content($content) {
+	@include prefixer(align-content, $content, webkit);
+}
+
+/**
+ * CSS Flex Align Items
+ *
+ * Outputs align-items code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/align-items
+ * Formal syntax: content | [flex-start | flex-end | center | baseline | stretch]
+ * Initial Value: strecth
+ * current spec, webkit browsers need prefixing
+ */
+@mixin align-items($content) {
+	@include prefixer(align-items, $content, webkit);
+}
+
+/**
+ * CSS Flex Align Self
+ *
+ * Outputs align-self code with defined prefixes
+ * http://caniuse.com/#search=flex
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/align-self
+ * Formal syntax: content | [auto | flex-start | flex-end | center | baseline | stretch]
+ * Initial Value: auto
+ * current spec, webkit browsers need prefixing
+ *
+ * Notes:
+ * Safari is not supporting this feature yet even with vendor prefix
+ */
+@mixin align-self($content) {
+	@include prefixer(align-self, $content, webkit);
+}
