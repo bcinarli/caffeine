@@ -5,6 +5,23 @@
     ------------------------------------------- **/
 /**
  * Fontface
+ *
+ * http://caniuse.com/#search=font-face
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face
+ * For modern approach, woff and ttf format is supported all major browsers. If you need to support
+ * Internet Explorer 8, with setting "$support-for-ie8" variable to "true", the eot file format
+ * also added to mixin output. You also need to provide related file formats in your fonts folder.
+ *
+ * @font-face {
+              [ font-family: <family-name>; ]?
+           || [ src: [ <uri> [format(<string>#)]? | <font-face-name> ]#; ]?
+           || [ unicode-range: <urange>#; ]?
+           || [ font-variant: <font-variant>; ]?
+           || [ font-feature-settings: normal|<feature-tag-value>#; ]?
+           || [ font-stretch: <font-stretch>; ]?
+           || [ font-weight: <weight>; ]?
+           || [ font-style: <style>; ]?
+   }
  */
 @mixin font-face($name, $file, $weight: normal, $style: normal){
     $ie8-support: false;
@@ -28,12 +45,22 @@
     }
 }
 
+/**
+ * fontface
+ * This mixin is a callback support for very early versions of Caffeine
+ */
 @mixin fontface($name, $file, $weight: normal, $style: normal){
     @include font-face($name, $file, $weight, $style);
+	
+	@warn "fontface mixin is going to be depreciated in newer versions. Please you font-face mixin instead";
 }
 
 /**
   * Font Icon
+  *
+  * Outputs an icon font definition with supporting class attribute selectors.
+  * For preventing font misuse for the element, the class selector applied to :before pseuode element
+  * instead of the element itself.
   */
 @mixin font-icon($name, $file){
 	$prefix-icon : 'icon-';
@@ -70,6 +97,8 @@
 
 /**
  * Font-Size callback
+ * 
+ * For modern usage, converts and output font-size with rem units.
  */
 @mixin font-size($font-size){
 	$ie8-support: true;
