@@ -130,3 +130,25 @@
 @mixin disable-text-select(){
 	@include prefixer('user-select', none, webkit moz ms);
 }
+
+
+/**
+ * Selection
+ *
+ * The ::selection CSS pseudo-element applies rules to the portion of a document 
+ * that has been highlighted (e.g., selected with the mouse or another pointing device) by the user.
+ * http://caniuse.com/#search=selection
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
+ * Formal syntax: content
+ * Only a small part of text related properties supports. You can change the following properties in selectionsİ
+ * color, background-color, cursor, outline, text-decoration, text-emphasis-color and text-shadow.
+ *
+ * Notes:
+ * text-shadow in ::selection is supported by Chrome, Safari and Firefox 17+.
+ *
+ * The ::selection CSS pseudo-element was drafted for CSS Selectors Level 3 
+ * but removed before it reached the Recommendation status. It was readded as part of the Pseudo-Elements Level 4 draft.
+ */
+@mixin selection($content...){
+	@include prefixer(selection, $content, moz);
+}
