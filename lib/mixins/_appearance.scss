@@ -1,0 +1,23 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Appearance Mixin
+    ------------------------------------------- **/
+/**
+ * CSS Appearance
+ *
+ * Outputs appearance with defined prefixes
+ * http://caniuse.com/#search=appearance
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-appearance
+ * Formal syntax: value | [ various variable can defined like button, caret, checkbox, progressbar etc. ]
+ * All browsers need vendor prefixing
+ * 
+ * Notes:
+ * This is an unofficial feature and not included in the spec. Aside from Internet Explorer, all browsers
+ * need their vendor prexing.
+ * However for the Internet Explorer, -webkit-appearance with value none is supported on IE11 Mobile 
+ * for phones with "Windows Phone 8.1 Update", and in EdgeHTML.dll
+ */
+@mixin appearance($value){
+	@include prefixer(appearance, $value);
+}
