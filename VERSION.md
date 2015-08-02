@@ -1,3 +1,8 @@
+## Version 0.5.0
+- NEW: Flex mixins
+- NEW: Selection mixin
+- NEW: Appearance mixin
+
 ## Version 0.4.1
 - NEW: Font-icon decleration added
 - FIX: Missing break-point reference in caffeine
