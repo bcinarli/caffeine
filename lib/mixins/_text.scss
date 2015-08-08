@@ -23,21 +23,32 @@
            || [ font-style: <style>; ]?
    }
  */
-@mixin font-face($name, $file, $weight: normal, $style: normal){
+@mixin font-face($name, $file, $weight: normal, $style: normal) {
     $ie8-support: false;
+    $woff2-support: false;
     $eot: "";
+    $woff2: "";
 
-    @if variable_exists(support-for-ie8){
+    @if variable_exists(support-for-ie8) {
         $ie8-support: $support-for-ie8;
     }
 
-    @if($ie8-support == true){
+    @if variable_exists(support-for-woff2){
+        $woff2-support: $support-for-woff2;
+    }
+
+    @if ($ie8-support == true) {
         $eot: 'url("../fonts/#{$file}.eot?#caffeine") format("embedded-opentype"),'
+    }
+
+    @if ($woff2-support == true){
+        $woff2: 'url("../fonts/#{$file}.woff2?#caffeine") format("woff2"),'
     }
 
     @font-face {
         font-family: "#{$name}";
         src: #{$eot}
+             #{$woff2}
              url("../fonts/#{$file}.woff?caffeine") format("woff"),
              url("../fonts/#{$file}.ttf?caffeine") format("truetype");
         font-weight: $weight;
@@ -49,10 +60,10 @@
  * fontface
  * This mixin is a callback support for very early versions of Caffeine
  */
-@mixin fontface($name, $file, $weight: normal, $style: normal){
+@mixin fontface($name, $file, $weight: normal, $style: normal) {
     @include font-face($name, $file, $weight, $style);
-	
-	@warn "fontface mixin is going to be depreciated in newer versions. Please you font-face mixin instead";
+
+    @warn "fontface mixin is going to be depreciated in newer versions. Please you font-face mixin instead";
 }
 
 /**
@@ -62,37 +73,38 @@
   * For preventing font misuse for the element, the class selector applied to :before pseuode element
   * instead of the element itself.
   */
-@mixin font-icon($name, $file){
-	$prefix-icon : 'icon-';
-	$placeholder-icon: '%font-icon';
-	
-	@if variable_exists(icon-prefix){
-		$prefix-icon: $icon-prefix;
-	}
-	
-	@if variable_exists(icon-placeholder){
-		$placeholder-icon: $icon-placeholder;
-	}
-	
-	@include font-face($name, $file);
-	
-	#{$placeholder-icon} {
-		font: {
-			family: $name;
-			style: normal;
-			variant: normal;
-			weight: normal;
-		};
-		line-height: 1;
-		text-transform: none;
-		
-	    -webkit-font-smoothing: antialiased;
-	    -moz-osx-font-smoothing: grayscale;	    
-	}
-	
-	[class^="#{$prefix-icon}"]:before, [class*=" #{$prefix-icon}"]:before {
-	    @extend #{$placeholder-icon};
-	}
+@mixin font-icon($name, $file) {
+    $prefix-icon: 'icon-';
+    $placeholder-icon: '%font-icon';
+
+    @if variable_exists(icon-prefix) {
+        $prefix-icon: $icon-prefix;
+    }
+
+    @if variable_exists(icon-placeholder) {
+        $placeholder-icon: $icon-placeholder;
+    }
+
+    @include font-face($name, $file);
+
+    #{$placeholder-icon} {
+        font: {
+            family: $name;
+            style: normal;
+            variant: normal;
+            weight: normal;
+        }
+    ;
+        line-height: 1;
+        text-transform: none;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    [class^="#{$prefix-icon}"]:before, [class*=" #{$prefix-icon}"]:before {
+        @extend #{$placeholder-icon};
+    }
 }
 
 /**
@@ -100,18 +112,16 @@
  * 
  * For modern usage, converts and output font-size with rem units.
  */
-@mixin font-size($font-size){
-	$ie8-support: true;
-	@if variable_exists(support-for-ie8){
-		$ie8-support: $support-for-ie8;
-	}
-	
-    @if ($font-size == inherit){
-        font-size: inherit;
+@mixin font-size($font-size) {
+    $ie8-support: true;
+    @if variable_exists(support-for-ie8) {
+        $ie8-support: $support-for-ie8;
     }
 
-    @else {
-        @if($ie8-support == true){
+    @if ($font-size == inherit) {
+        font-size: inherit;
+    } @else {
+        @if ($ie8-support == true) {
             font-size: rem-to-px($font-size);
         }
         font-size: rem($font-size);
@@ -127,10 +137,9 @@
  * Formal syntax: none | text | all | element
  * Current spec, all vendors need prefixing
  */
-@mixin disable-text-select(){
-	@include prefixer('user-select', none, webkit moz ms);
+@mixin disable-text-select() {
+    @include prefixer('user-select', none, webkit moz ms);
 }
-
 
 /**
  * Selection
@@ -149,6 +158,6 @@
  * The ::selection CSS pseudo-element was drafted for CSS Selectors Level 3 
  * but removed before it reached the Recommendation status. It was readded as part of the Pseudo-Elements Level 4 draft.
  */
-@mixin selection($content...){
-	@include prefixer(selection, $content, moz);
+@mixin selection($content...) {
+    @include prefixer(selection, $content, moz);
 }
