@@ -1,0 +1,14 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Text Gradient
+    ------------------------------------------- **/
+/**
+ * Gradient Text Color
+ * Add a gradient color to the text
+ */
+@mixin text-gradient($content){
+    @include linear-gradient($content);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
