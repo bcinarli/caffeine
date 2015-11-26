@@ -1,0 +1,31 @@
+/* @author Bilal Cinarli */
+
+/** -------------------------------------------
+    Scrollbar Styles
+    ------------------------------------------- **/
+/**
+  * Scrollbar
+  * Styles the scrollbars for supported browsers
+  * Both vertical and horizontal scrolls styled together
+  * The invisible OSX scrolls will be visible when applied
+  */
+
+@mixin scrollbar($thickness, $thumbColor, $trackColor, $radius: 3px) {
+    &::-webkit-scrollbar {
+        width:  $thickness;
+        height: $thickness;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $thumbColor;
+        border-radius: $radius;
+
+        &:vertical {
+            height: $thickness;
+            background-color: $thumbColor;
+        }
+    }
+
+    &::-webkit-scrollbar-track { background-color: $trackColor; }
+    &::-webkit-scrollbar-track-piece { background-color: $trackColor;}
+}
