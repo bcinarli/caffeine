@@ -22,11 +22,16 @@
 @mixin value-prefixer($property, $value, $content, $vendors: webkit moz){
     $p-open: "(";
     $p-close: ")";
+    $_content : '';
+
+    @if(length($content) > 0){
+        $_content: #{$p-open}#{$content}#{$p-close};
+    }
 
     @if length($vendors) > 0 {
         @each $vendor in $vendors {
-            #{$property}: -#{$vendor}-#{$value}#{$p-open}#{$content}#{$p-close};
+            #{$property}: -#{$vendor}-#{$value}#{$_content};
         }
     }
-    #{$property}: #{$value}#{$p-open}#{$content}#{$p-close};
+    #{$property}: #{$value}#{$_content};
 }
