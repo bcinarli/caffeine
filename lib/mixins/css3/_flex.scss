@@ -12,8 +12,13 @@
  * Formal syntax: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
  * current spec, webkit browsers need prefixing
  */
-@mixin flex($content...) {
-	@include value-prefixer(display, flex, $content, webkit);
+@mixin flex($value) {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    @include prefixer(flex, $value, webkit ms);
 }
 
 /**
@@ -33,7 +38,7 @@
  *
  */
 @mixin flex-basis($content) {
-	@include prefixer(flex-basis, $content, webkit);
+    @include prefixer(flex-basis, $content, webkit);
 }
 
 /**
@@ -46,7 +51,7 @@
  * current spec, webkit browsers need prefixing, however Safari is not supporting this feature
  */
 @mixin flex-direction($content) {
-	@include prefixer(flex-direction, $content, webkit);
+    @include prefixer(flex-direction, $content, webkit ms);
 }
 
 /**
@@ -62,7 +67,7 @@
  * not supporting this feature
  */
 @mixin flex-grow($number) {
-	@include prefixer(flex-grow, $number, webkit);
+    @include prefixer(flex-grow, $number, webkit);
 }
 
 /**
@@ -82,7 +87,7 @@
  * A workaround is to always set an explicit value for flex-shrink.
  */
 @mixin flex-shrink($number) {
-	@include prefixer(flex-shrink, $number, webkit);
+    @include prefixer(flex-shrink, $number, webkit);
 }
 
 /**
@@ -96,7 +101,7 @@
  * current spec, webkit browsers need prefixing
  */
 @mixin flex-wrap($content) {
-	@include prefixer(flex-wrap, $content, webkit);
+    @include prefixer(flex-wrap, $content, webkit ms);
 }
 
 /**
@@ -112,8 +117,8 @@
  * Notes:
  * Internet Explorer and Safari are not supporting this feature yet even with vendor prefix
  */
-@mixin align-content($content) {
-	@include prefixer(align-content, $content, webkit);
+@mixin align-content($value) {
+    @include prefixer(align-content, $value, webkit);
 }
 
 /**
@@ -126,8 +131,22 @@
  * Initial Value: strecth
  * current spec, webkit browsers need prefixing
  */
-@mixin align-items($content) {
-	@include prefixer(align-items, $content, webkit);
+@mixin align-items($value) {
+    $box: $value;
+    $ms: $value;
+    @if ($value == "flex-start") {
+        $box: "start";
+        $ms: "start";
+    }
+
+    @if ($value == "flex-end") {
+        $box: "end";
+        $ms: "end";
+    }
+
+    -ms-flex-align: #{$ms};
+    -webkit-box-align: #{$box};
+    @include prefixer(align-items, $value, webkit);
 }
 
 /**
@@ -144,5 +163,39 @@
  * Safari is not supporting this feature yet even with vendor prefix
  */
 @mixin align-self($content) {
-	@include prefixer(align-self, $content, webkit);
+    @include prefixer(align-self, $content, webkit);
+}
+
+/*
+ * CSS Justify Content
+ *
+ */
+@mixin justify-content($value) {
+    $box: $value;
+    $ms: $value;
+    @if ($value == "flex-start") {
+        $box: "start";
+        $ms: "start";
+    }
+
+    @if ($value == "flex-end") {
+        $box: "end";
+        $ms: "end";
+    }
+
+    @if ($value == "space-between" or $value == "space-around") {
+        $box: "justify";
+        $ms: "justify";
+    }
+    -ms-flex-pack: #{$ms};
+    -webkit-box-pack: #{$box};
+    @include prefixer(justify-content, $value, webkit);
+}
+
+/**
+ * Order
+ *
+ */
+@mixin _order($value) {
+    @include prefixer(order, $value, webkit ms);
 }
