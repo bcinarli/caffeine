@@ -1,4 +1,4 @@
-## Version 0.6.0
+## Version 0.7.0
 - CHANGE: Flex mixins revised to add more fallback
 
 ## Version 0.5.0
