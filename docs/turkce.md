@@ -940,6 +940,253 @@ Eleman içindeki kolonların, elemanın içine nasıl yayılacağını belirler.
  */
 ```
 
+### 3. Flex
+Float kullanımı dışında da, elemanları hizalamak ve yanyana dizmek için kullanılabilecek flex görünüm modu ile alakalı mixinler.
+
+#### 3.1 `flex`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
+
+Flex tanımı ile beraber görünüm tanımlarını da ekler.
+
+```scss
+.example {
+  @include flex;
+}
+
+/*
+  .example {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+  }
+ */
+```
+```scss
+.example {
+  @include flex(2 2 10%);
+}
+
+/*
+  .example {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex: 2 2 10%;
+    -ms-flex: 2 2 10%;
+    flex: 2 2 10%;
+  }
+ */
+```
+
+#### 3.2 `flex-basis`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)
+
+Flex elemanının ana genişliğini belirler.
+
+```scss
+.example {
+  @include flex-basis(fit-content);
+}
+
+/*
+  .example {
+    flex-basis: -webkit-fit-content;
+    flex-basis: -moz-fit-content;
+    flex-basis: fix-content;
+  }
+ */
+```
+
+#### 3.3 `flex-flow`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
+
+Flex içindeki elemanların nasıl sıralacağını ve satırı dolduracağını belirleyen `flex-direction` ve `flex-wrap` için kısa kullanımdır
+
+```scss
+.example {
+  @include flex-flow(column wrap);
+}
+
+/*
+  .example {
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+ */
+```
+
+#### 3.4 `flex-direction`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
+
+Flex içindeki elemanların nasıl sıralacağını belirler.
+
+```scss
+.example {
+  @include flex-direction(column);
+}
+
+/*
+  .example {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+ */
+```
+
+#### 3.5 `flex-wrap`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
+
+Flex içindeki elemanların tek satır mı yoksa birden fazla satır olarak mı gözükeceğini belirler.
+
+```scss
+.example {
+  @include flex-wrap(wrap);
+}
+
+/*
+  .example {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+ */
+```
+
+#### 3.6 `flex-grow`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)
+
+Flex içindeki elemanların maksimum ne kadar yer kaplayabileceğini belirler.
+
+```scss
+.example {
+  @include flex-grow(2);
+}
+
+/*
+  .example {
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+  }
+ */
+```
+
+#### 3.7 `flex-shrink`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
+
+Flex içindeki elemanların minimum ne kadar yer kaplayabileceğini belirler.
+
+```scss
+.example {
+  @include flex-shrink(2);
+}
+
+/*
+  .example {
+    -webkit-flex-shrink: 2;
+    flex-shrink: 2;
+  }
+ */
+```
+
+#### 3.8 `align-content`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
+
+Flex içindeki elemanların nasıl hizalanacağını belirler.
+
+```scss
+.example {
+  @include align-content(space-between);
+}
+
+/*
+  .example {
+    -webkit-align-content: space-between;
+    align-content: space-between;
+  }
+ */
+```
+
+#### 3.9 `align-items`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+
+Flex içindeki elemanların o flex satırına nasıl hizalanacağını belirler
+
+```scss
+.example {
+  @include align-items(flex-start);
+}
+
+/*
+  .example {
+    -ms-flex-align: start;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  }
+ */
+```
+
+#### 3.10 `align-self`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
+
+Flex içindeki bir elemanın, o flex satırına nasıl hizalanacağını belirler. `align-items` tanımını, kullanılan eleman için iptal eder.
+
+```scss
+.example {
+  @include align-self(center);
+}
+
+/*
+  .example {
+    -webkit-align-self: center;
+    align-self: center;
+  }
+ */
+```
+
+#### 3.10 `justify-content`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
+
+Flex içindeki boşluğun elemanların arasında nasıl dağıtılacağını belirler
+
+```scss
+.example {
+  @include justify-content(space-around);
+}
+
+/*
+  .example {
+    -ms-flex-pack: justify;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+ */
+```
+
+#### 3.11 `order`
+[Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
+
+Flex içindeki elemanın gösterim sırasını belirler.
+
+```scss
+.example {
+  @include order(2);
+}
+
+/*
+  .example {
+    -webkit-order: 2;
+    order: 2;
+  }
+ */
+```
+
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
 
