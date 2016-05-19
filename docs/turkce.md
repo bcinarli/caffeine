@@ -1263,6 +1263,117 @@ Transform edilecek elemanın 2 boyutlu mu yoksa üç boyutlu olarak mı transfor
  */
 ```
 
+### 6. Transition
+Elemanların stil tanımları arasında geçiş yaparken (class değişikliği, hover gibi etkileşimleri sırasında), bu geçişin süresi ve şekli ile alakalı tanımları içerir.
+
+#### 6.1 `transition`
+[Can I Use](http://caniuse.com/#search=transition) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
+
+Transition tanımları için kısa kullanımdır.
+
+```scss
+.example {
+  @include transition(all 4s ease-in-out 1s);
+}
+
+/*
+  .example {
+    -webkit-transition: all 4s ease-in-out 1s;
+    transition: all 4s ease-in-out 1s;
+  }
+ */
+```
+
+#### 6.2 `transition-delay`
+[Can I Use](http://caniuse.com/#search=transition) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay)
+
+Transitionın ne kadar geç başlayacağını belirler.
+
+```scss
+.example {
+  @include transition-delay(1s);
+}
+
+/*
+  .example {
+    -webkit-transition-delay: 1s;
+    transition-delay: 1s;
+  }
+ */
+```
+
+#### 6.3 `transition-duration`
+[Can I Use](http://caniuse.com/#search=transition) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration)
+
+Transitionın süresinin ne kadar olacağını belirler.
+
+```scss
+.example {
+  @include transition-duration(4s);
+}
+
+/*
+  .example {
+    -webkit-transition-duration: 4s;
+    transition-duration: 4s;
+  }
+ */
+```
+
+#### 6.4 `transition-property`
+[Can I Use](http://caniuse.com/#search=transition) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration)
+
+Elemana yapılan etkileşim sırasında hangi css tanımının transition ile değiştirileceğini belirler. Css tanım ismine ya da `all` şeklinde bütün tanımlara uygulanabilir.
+
+```scss
+.example {
+  @include transition-property(margin-top);
+}
+
+/*
+  .example {
+    -webkit-transition-property: margin-top;
+    transition-property: margin-top;
+  }
+ */
+```
+
+#### 6.5 `transition-timing-function`
+[Can I Use](http://caniuse.com/#search=transition) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)
+
+Elemana yapılan etkileşim sırasında css tanımının transition easing metodlarını belirler.
+
+```scss
+.example {
+  @include transition-timing-function(ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1));
+}
+
+/*
+  .example {
+    -webkit-transition-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    transition-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  }
+ */
+```
+
+#### 6.6 `app-transition`
+Stil ayarları içinde tanımlanabilecek `$base-duration` ve  `$base-easing` değişkenleri kullanılarak, transition özelliği verilecek elemanlara için ortak bir süre ve easing tanımı verilmesini sağlar.
+
+```scss
+$base-duration: 2s;
+$base-easing: ease-in;
+
+.example {
+  @include app-transition;
+}
+
+/*
+  .example {
+    -webkit-transition: all 2s ease-in;
+    transition: all 2s ease-in;
+  }
+ */
+```
 
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
