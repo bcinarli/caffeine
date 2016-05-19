@@ -399,6 +399,156 @@ Aldığı parametreler
  */
 ```
 
+### 9. Metin tanımları (_text_)
+Metin ve fontlar ile alakalı tanımları belirlerler.
+
+#### 9.1 `font-face`
+Sayfaya eklenecek sistem fontları dışındaki font tanımlarını kolayca hazırlamak için kullanılır. Font dosyası olarak, stillerin olduğu _assets_ klasörü içinde _fonts_ isimli bir klasörde fontların tutulmasını bekler. Mixin kendi başına kullanılır, her hangibir bir seçici (class, id, tag vs.) içinde tanımlanmaz.
+
+Aldığı parametreler
+* `$name`, stillerinizde font tanımı için kullanacağınız font ismi.
+* `$file`, _fonts_ klasöründe bulunan font dosyanızın *uzantısı* olmayan dosya ismi.
+* `$weight`, kullanılan fontun, font dosyasında tanımlı kalınlığı, _default değeri `normal`_, standart `font-weight` tanımlarını alır.
+* `$style`, kullanılan fontun, font dosyasında tanımlı stili, _default değeri `normal`_, standart `font-style` tanımlarını alır.
+
+_Ayrıca, stilleriniz için kullanacağınız genel ayarlar içinde `$support-for-ie8` ve `$support-for-woff2` parametreleri için vereceğiniz `true` ya da `false` değerlerine göre, font-face tanımı için IE8 destekli font tanımı ve Woff2 font tanımı eklenir._
+
+```scss
+@include font-face(OpenSans, opensans-regular);
+@include font-face(OpenSans, opensans-bold, bold);
+@include font-face(OpenSans, opensans-italic, normal, italic);
+
+/*
+  @font-face {
+    font-family: "OpenSans";
+    src: url("../fonts/opensans-regular.woff?caffeine") format("woff"),
+         url("../fonts/opensans-regular.ttf?caffeine") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "OpenSans";
+    src: url("../fonts/opensans-bold.woff?caffeine") format("woff"),
+         url("../fonts/opensans-bold.ttf?caffeine") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "OpenSans";
+    src: url("../fonts/opensans-italic.woff?caffeine") format("woff"),
+         url("../fonts/opensans-italic.ttf?caffeine") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+  }
+ */
+```
+
+#### 9.2 `font-icon`
+Font-icon kullanımı için hazırlanmış fontların stillerinize eklenmesi için kullanılabilir. `font-face` tanımlarının yanısıra `:before` ile kullanılacak tavsiye edilen font-icon tanımını da içermektedi.
+
+Aldığı parametreler
+* `$name`, font iconun adı,
+* `$file`, font icon dosyasının uzantısı olmadan dosya adı.
+
+_Ayrıca, font tanımları için kullanılan stillerde ortak bir `.icon-` benzeri class öneki ve placeholder class tanımını da, stil ayarlarından yapabileceğini `$icon-prefix` ve `$icon-placeholder` değişkenleri de mixin içinde kullanılır. `icon-` değeri `$icon-prefix` için, `%font-icon` değeri de `$icon-placeholder` için default değerlerdir.
+
+```scss
+@include font-icon(my-icons, my-icon-fonts);
+
+/*
+  @font-face {
+    font-family: "my-icons";
+    src: url("../fonts/my-icons.woff?caffeine") format("woff"),
+         url("../fonts/my-icons.ttf?caffeine") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  %font-icon,
+  [class^="icon-"]:before, 
+  [class*="icon-"]:before {
+    font-family: my-icons;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+ */
+```
+
+#### 9.3 `font-size`
+CSS3 ile beraber kullanılması tavsiye edilen font-size tanımında `px` yerine `rem` kullanılmasını kolaylaştırmaktadır. `px` olarak verilen font değerinin `rem` karşılığı verilmektedir.
+
+Aldığı parametreler
+* `$font-size`, `px` ya da `rem` değerinde font boyutu.
+_Ayrıca stillerinizde ortak kullanacağınız ayar değişkenleri içinde verilebilecek `$support-for-ie8` değeri `true` durumunda, fallback olarak `px` değeri de font-size olarak eklenir._
+
+```scss
+.example {
+  @include font-size(16px);
+}
+
+/*
+  .example {
+    font-size: 16px; // sadece $suppor-for-ie8: true ise eklenir. diğer durumda eklenmez.
+    font-size: 1em
+  }
+ */
+```
+
+#### 9.4 `disable-text-select`
+[Can I Use](http://caniuse.com/#search=user-select) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/user-select)
+
+Belirlediğiniz bir eleman içindeki metinlerin seçilmesi sırasında _highlight_ renginin olmamasını, metnin seçilmesinin görünümü engeller. Özellikle butonlara tıklanma sırasında buton metninin seçiminin önüne geçer.
+
+```scss
+.example {
+  @include disable-text-select;
+}
+
+/*
+  .example {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+ */
+```
+
+#### 9.5 `selection`
+[Can I Use](http://caniuse.com/#search=selection) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/::selection)
+
+Cursor ile seçilen metnin _highlight_ renginin ve görünümün değişmesini sağlar. Sadece *Firefox* için prefix ihtiyacı bulunmaktadır. Metin stillerinin sadece küçük kısmı uygulanabilir, bunlar: `color`, `background-color`, `cursor`, `outline`, `text-decoration`, `text-emphasis-color` and `text-shadow`.
+
+```scss
+.example {
+  @include selection {
+    background-color: pink;
+    color: #fff;
+    text-shadow: 0 1px 1px #ccc;
+  }
+}
+
+/*
+  .example::-moz-selection {
+    background-color: pink;
+    color: #fff;
+    text-shadow: 0 1px 1px #ccc;
+  }
+  
+  .example::selection {
+    background-color: pink;
+    color: #fff;
+    text-shadow: 0 1px 1px #ccc;
+  }
+ */
+```
 
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
