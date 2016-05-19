@@ -1149,7 +1149,7 @@ Flex içindeki bir elemanın, o flex satırına nasıl hizalanacağını belirle
  */
 ```
 
-#### 3.10 `justify-content`
+#### 3.11 `justify-content`
 [Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 
 Flex içindeki boşluğun elemanların arasında nasıl dağıtılacağını belirler
@@ -1169,7 +1169,7 @@ Flex içindeki boşluğun elemanların arasında nasıl dağıtılacağını bel
  */
 ```
 
-#### 3.11 `order`
+#### 3.12 `order`
 [Can I Use](http://caniuse.com/#search=flex) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 
 Flex içindeki elemanın gösterim sırasını belirler.
@@ -1186,6 +1186,83 @@ Flex içindeki elemanın gösterim sırasını belirler.
   }
  */
 ```
+
+### 4. `text-gradient`
+Metinlere gradient şeklinde bir renk görünümü vermeye yarar.
+
+```scss
+.example {
+  @include text-gradient(#eee, #333);
+}
+
+/*
+  .example {
+    background: -webkit-linear-gradient(#eee, #333);
+    background: linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+ */
+```
+
+### 5. Transform
+Elemanı döndürmek, büyütmek, küçültmek gibi transforme edecek tanımlardır.
+
+#### 5.1 `transform`
+[Can I Use](http://caniuse.com/#search=transform) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
+
+```scss
+.example {
+  @include transform(translate(100px) rotate(20deg));
+}
+
+/*
+  .example {
+    -webkit-transform: translate(100px) rotate(20deg);
+    -ms-transform: translate(100px) rotate(20deg);
+    transform: translate(100px) rotate(20deg);
+  }
+ */
+```
+
+#### 5.2 `transform-origin`
+[Can I Use](http://caniuse.com/#search=transform) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)
+
+Transform edilecek elemanın hizalanacağı noktayı belirler. Örneği, döndürelecek bir elemanın dönme noktasının elemanın başı mı, ortası mı sonu mu olacak bu tanım ile belirlenebilir.
+
+```scss
+.example {
+  @include transform-origin(2px 30% bottom);
+}
+
+/*
+  .example {
+    -webkit-transform-origin: 2px 30% bottom;
+    -ms-transform-origin: 2px 30% bottom;
+    transform-origin: 2px 30% bottom;
+  }
+ */
+```
+
+#### 5.3 `transform-style`
+[Can I Use](http://caniuse.com/#search=transform) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
+
+Transform edilecek elemanın 2 boyutlu mu yoksa üç boyutlu olarak mı transform edileceğini belirler. 
+
+```scss
+.example {
+  @include transform-style(preserve-3d);
+}
+
+/*
+  .example {
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+ */
+```
+
 
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
