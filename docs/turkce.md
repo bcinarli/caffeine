@@ -550,6 +550,204 @@ Cursor ile seçilen metnin _highlight_ renginin ve görünümün değişmesini s
  */
 ```
 
+## CSS3 Mixinleri
+CSS3 mixinleri daha çok vendor-prefix ihtiyacı olan tanımlar için sonradan prefix eklemek için ek araçlara ihtiyaç olmaması açısından eklenmişlerdir. 
+
+### 1. Animasyon tanımları
+CSS3 ile beraber kullanılmaya başlanmış animasyon tanımlarını içerir.
+
+#### 1.1 `animation`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
+
+Animasyon kısa tanımlarını kullanmaya yarar. 
+
+```
+.example {
+  @include animation(3s ease-in 1s 2 reverse both paused slidein);
+}
+
+/*
+  .example {
+    -webkit-animation: 3s ease-in 1s 2 reverse both paused slidein;
+    animation: 3s ease-in 1s 2 reverse both paused slidein;
+  }
+ */
+```
+
+#### 1.2 `animation-delay`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay)
+
+Animasyonun ne zaman başlayacağını belirler. 
+
+```
+.example {
+  @include animation-delay(3s);
+}
+
+/*
+  .example {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+  }
+ */
+```
+
+#### 1.3 `animation-direction`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction)
+
+Animasyonun ileri, geri ya da alternate modda mı olacağını belirler. 
+
+```
+.example {
+  @include animation-direction(reverse);
+}
+
+/*
+  .example {
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+  }
+ */
+```
+
+#### 1.4 `animation-duration`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)
+
+Animasyonun süresini belirler. 
+
+```
+.example {
+  @include animation-duration(6s);
+}
+
+/*
+  .example {
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+  }
+ */
+```
+
+#### 1.5 `animation-fill-mode`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode)
+
+Animasyonun stili nasıl uygulayacağını belirler. Alabildiği değerler `none`, `forwards`, `backwards` ve `both`. _default değeri `none`dır._
+
+```
+.example {
+  @include animation-fill-mode(forwards);
+}
+
+/*
+  .example {
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+ */
+```
+
+#### 1.6 `animation-iteration-count`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)
+
+Animasyonun durmadan önce ne kadar tekrar edeceğini belirler. Sayı ya da `infinite` değerlerini alabilir.
+
+```
+.example {
+  @include animation-iteration-count(12);
+}
+
+/*
+  .example {
+    -webkit-animation-iteration-count: 12;
+    animation-iteration-count: 12;
+  }
+ */
+```
+
+#### 1.7 `animation-name`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)
+
+Animasyonun içinde kullanılıcak `@keyframes` ile tanımlanmış animasyonun adı.
+
+```
+.example {
+  @include animation-name(my-animation);
+}
+
+/*
+  .example {
+    -webkit-animation-name: my-animation;
+    animation-name: my-animation;
+  }
+ */
+```
+
+#### 1.8 `animation-play-state`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state)
+
+Animasyonun çalışma durumunu belirler
+
+```
+.example {
+  @include animation-play-state(paused);
+}
+
+/*
+  .example {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+ */
+```
+
+#### 1.8 `animation-timing-function`
+[Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)
+
+Animasyonun çalışırken kullanılacak _easing_ metodlarını belirler.
+
+```
+.example {
+  @include animation-timing-function(ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1));
+}
+
+/*
+  .example {
+    -webkit-animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+  }
+ */
+```
+
+#### 1.9 `keyframes`
+[Can I Use](http://caniuse.com/#search=keyframes) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+
+Animasyonlar için kullanılacak frame geçişlerinin tanımlarını belirler.
+
+```
+@include keyframes(my-animation) {
+  0% { top: 0; }
+  50% { top: 30px; left: 20px; }
+  50% { top: 10px; }
+  100% { top: 0; }
+}
+
+/*
+  @-webkit-keyframes my-animation {
+    0% { top: 0; }
+    50% { top: 30px; left: 20px; }
+    50% { top: 10px; }
+    100% { top: 0; }
+  }
+  
+  @keyframes my-animation {
+    0% { top: 0; }
+    50% { top: 30px; left: 20px; }
+    50% { top: 10px; }
+    100% { top: 0; }
+  }
+ */
+```
+
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
 
