@@ -700,7 +700,7 @@ Animasyonun çalışma durumunu belirler
  */
 ```
 
-#### 1.8 `animation-timing-function`
+#### 1.9 `animation-timing-function`
 [Can I Use](http://caniuse.com/#search=css3%20animation) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)
 
 Animasyonun çalışırken kullanılacak _easing_ metodlarını belirler.
@@ -718,7 +718,7 @@ Animasyonun çalışırken kullanılacak _easing_ metodlarını belirler.
  */
 ```
 
-#### 1.9 `keyframes`
+#### 1.10 `keyframes`
 [Can I Use](http://caniuse.com/#search=keyframes) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
 
 Animasyonlar için kullanılacak frame geçişlerinin tanımlarını belirler.
@@ -744,6 +744,198 @@ Animasyonlar için kullanılacak frame geçişlerinin tanımlarını belirler.
     50% { top: 30px; left: 20px; }
     50% { top: 10px; }
     100% { top: 0; }
+  }
+ */
+```
+
+### 2. Kolonlar
+Bir elemanın içindeki metinleri gazete gibi, kolonlu yapıda göstermek için kullanılabilecek tanımlardır.
+
+#### 2.1 `columns`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
+
+Kolon tanımların kısa kullanımıdır. Şuan Internet Explorer dışındaki tarayıcılarda prefix eklenmesi gerekmektedir.
+
+```scss
+.example {
+  @include columns(100px 3);
+}
+
+/*
+  .example {
+    -webkit-columns: 100px 3;
+    -moz-columns: 100px 3;
+    columns: 100px 3;
+  }
+ */
+```
+
+#### 2.2 `column-count`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-count)
+
+Eleman içindeki metinlerin kaç kolonda gözükeceğini tanımlar
+
+```scss
+.example {
+  @include column-count(3);
+}
+
+/*
+  .example {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+ */
+```
+
+#### 2.3 `column-width`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-count)
+
+Eleman içindeki metinlerin kolon genişliğini tanımlar
+
+```scss
+.example {
+  @include column-width(100px);
+}
+
+/*
+  .example {
+    -webkit-column-width: 100px;
+    -moz-column-width: 100px;
+    column-width: 100px;
+  }
+ */
+```
+
+#### 2.4 `column-gap`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap)
+
+Eleman içindeki metinlerin kolon aralarındaki boşluğu tanımlar
+
+```scss
+.example {
+  @include column-gap(10px);
+}
+
+/*
+  .example {
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+  }
+ */
+```
+
+#### 2.5 `column-rule`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule)
+
+Eleman içindeki metinlerin kolonların kenarlarında gösterilecek çizgi/cetvel için kısa tanımdır.
+
+```scss
+.example {
+  @include column-rule(thick inset blue);
+}
+
+/*
+  .example {
+    -webkit-column-rule: thick inset blue;
+    -moz-column-rule: thick inset blue;
+    column-rule: thick inset blue;
+  }
+ */
+```
+
+##### 2.5.1 `column-rule-color`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color)
+
+Eleman içindeki metinlerin kolonların kenarlarında gösterilecek çizgi/cetvelin rengini tanımlar.
+
+```scss
+.example {
+  @include column-rule-color(blue);
+}
+
+/*
+  .example {
+    -webkit-column-rule-color: blue;
+    -moz-column-rule-color: blue;
+    column-rule-color: blue;
+  }
+ */
+```
+
+##### 2.5.2 `column-rule-style`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-style)
+
+Eleman içindeki metinlerin kolonların kenarlarında gösterilecek çizgi/cetvelin stilini tanımlar. Alabileceği değerler `none`, `hidden`, `dotted`, `dashed, `solid`, `double`, `groove`, `ridge`, `inset`, `outset`
+
+```scss
+.example {
+  @include column-rule-style(dotted);
+}
+
+/*
+  .example {
+    -webkit-column-rule-style: dotted;
+    -moz-column-rule-style: dotted;
+    column-rule-style: dotted;
+  }
+ */
+```
+
+##### 2.5.3 `column-rule-width`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width)
+
+Eleman içindeki metinlerin kolonların kenarlarında gösterilecek çizgi/cetvelin genişliğini tanımlar.
+
+```scss
+.example {
+  @include column-rule-width(2px);
+}
+
+/*
+  .example {
+    -webkit-column-rule-width: 2px;
+    -moz-column-rule-width: 2px;
+    column-rule-width: 2px;
+  }
+ */
+```
+
+#### 2.6 `column-span`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-span)
+
+Eleman içindeki bazı elemanların kolonlarının tamamına genişlemesine sağlar.
+
+```scss
+.example {
+  @include column-span(all);
+}
+
+/*
+  .example {
+    -webkit-column-span: all;
+    -moz-column-span: all;
+    column-span: all;
+  }
+ */
+```
+
+#### 2.7 `column-fill`
+[Can I Use](http://caniuse.com/#search=column) | [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill)
+
+Eleman içindeki kolonların, elemanın içine nasıl yayılacağını belirler.
+
+```scss
+.example {
+  @include column-fill(balanced);
+}
+
+/*
+  .example {
+    -webkit-column-fill: balanced;
+    column-fill: balanced;
   }
  */
 ```
