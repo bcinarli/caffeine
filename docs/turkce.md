@@ -202,6 +202,64 @@ Aldığı parametreler
  */
 ```
 
+### 5. Placeholder
+Input elemanında `placeholder` tanımı ile gösterilen örnek içerik metninin görünümünü stillendirir.
+
+Aldığı parametreler
+* `$self`, tanımı classın kendisine mi yoksa içindeki elemanlara mı uygulanacağını belirler, _default değeri true_
+
+```scss
+.example {
+    @include placeholder {
+        color: #999;
+        font-style: italic;
+    }
+}
+/*
+  .example {
+    &::-webkit-input-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    
+    &::-moz-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    
+    &::-ms-input-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+  }
+ */
+```
+```scss
+.example {
+    @include placeholder(false) {
+        color: #999;
+        font-style: italic;
+    }
+}
+/*
+  .example {
+    ::-webkit-input-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    
+    ::-moz-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+    
+    ::-ms-input-placeholder {
+      color: #999;
+      font-style: italic;
+    }
+  }
+ */
+```
 
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
