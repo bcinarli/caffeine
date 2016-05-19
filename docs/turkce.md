@@ -364,6 +364,42 @@ Aldığı parametreler
  */
 ```
 
+### 8. Boyut tanımları (_size_)
+Elemanların boyutlandırmaları ile alakalı mixinleri bulundurur.
+
+#### 8.1 `dims`
+Elemanın kare ya da istenilen boyutları standart olarak verilebilmesini sağlar.
+
+Aldığı parametreler
+* `$width`, elemanın genişliğini belirler. Kare kullanımında, `$height` değeri verilmediğinde `$width` değeri kullanılır.
+* `$height`, elemanının yüksekliğini belirler.
+
+```scss
+.example {
+  @include dims(10px);
+}
+
+/*
+  .example {
+    width: 10px;
+    height: 10px;
+  }
+ */
+```
+```scss
+.example {
+  @include dims(10px, 20px);
+}
+
+/*
+  .example {
+    width: 10px;
+    height: 20px;
+  }
+ */
+```
+
+
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
 
