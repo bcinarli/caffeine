@@ -261,6 +261,75 @@ Aldığı parametreler
  */
 ```
 
+### 6. Pozisyon Mixinleri (_position_)
+Elemanların bulundukları taşıyıcı ya da sayfa için ortalı pozisyonlamaları tanımları. Tanımlar içinde elemanın genişlik ve yüksekliğinin bilinmesine ihtiyaç duymayan `transform` ile ortalama metodu kullanılmaktadır. 
+
+#### 6.1 `center`
+Elemanı sayfaya ya da bulunduğu taşıyıcı içine hem yatayda hem de düşeyde ortalar.
+
+```scss
+.example {
+	@include center;
+}
+
+/*
+  .example {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+ */
+```
+
+#### 6.2 `center-vertical`
+Elemanı sayfaya ya da bulunduğu taşıyıcı içine düşeyde ortalar.
+
+```scss
+.example {
+	@include center-vertical;
+}
+
+/*
+  .example {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+ */
+```
+
+#### 6.3 `center-horizontal`
+Elemanı sayfaya ya da bulunduğu taşıyıcı içine yatayda ortalar. _transform_ ya da _margin_ metodlarından tercih ettiğiniz birini seçebilirsiniz.
+
+Aldığı Parametreler
+* `$type`, ortalamanın _transform_ ile mi yoksa _margin_ ile mi yapılacağını belirler. _default değeri `absolute`_, başka bir değer gönderildiğin _margin_ yöntemi kullanılır.
+
+```scss
+.example {
+	@include center-horizontal;
+}
+
+/*
+  .example {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+ */
+```
+```scss
+.example {
+	@include center-horizontal(margin);
+}
+
+/*
+  .example {
+    margin: 0 auto;
+  }
+ */
+```
+
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
 
