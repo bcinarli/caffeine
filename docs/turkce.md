@@ -330,6 +330,40 @@ Aldığı Parametreler
  */
 ```
 
+### 7. Scrollbar Görünümü (_scrollbar_)
+Webkit tarayıcılarında sayfanın ya da bir elemanın kenarında gözüken scrollbarın görünümünü stillendirir. Scrollbarların görünümlerin `overflow` ile tanımlanabildiği için ayrıca _scrollbar_ ın yatay mı olacağı yoksa düşey mi olacağı tanımına ihtiyaç duyulmaz.
+
+Aldığı parametreler
+* `$thickness`, düşey scrollbarın genişliğini ve yatay scrollbarın yüksekliğini belirler. Aynı zamanda scroll pozisyonunu gösteren `thumb` elemanını da genişlik ya da yüksekliğini belirler.
+* `$thumbColor`, scrollbarın pozisyonunu gösteren `thumb` elemanının rengini belirler.
+* `$trackColor`, scrollbarın rengini gelirler
+* `$radius`, `scrollbar` ve `thumb` elemanının kenar yuvarlaklığını belirler. _default değeri `3px`_
+
+```scss
+.example {
+  @include scrollbar(5px, #999, #222);
+}
+
+/*
+  .example::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .example::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 3px;
+  }
+
+  .example::-webkit-scrollbar-thumb:vertical {
+    height: 5px;
+  }
+
+  .example::-webkit-scrollbar-track { background-color: #222; }
+  .example::-webkit-scrollbar-track-piece { background-color: #222; }
+ */
+```
+
 ## Fonksiyonlar
 Caffeine fonksiyonları, hem mixinler içinde hem de ihtiyaç durumunda geliştirme sırasında kullanılabilirler. Fonksiyonlar genel olarak bir CSS çıktısı üretmezler. Daha çok bir CSS tanımı içinde kullanılacak değer ya da hesaplama sonuçlarını üretirler.
 
