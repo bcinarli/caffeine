@@ -12,7 +12,7 @@
  * Formal syntax: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
  * current spec, webkit browsers need prefixing
  */
-@mixin flex($value) {
+@mixin flex($value...) {
     display: -ms-flexbox;
     display: -webkit-box;
     display: -webkit-flex;
